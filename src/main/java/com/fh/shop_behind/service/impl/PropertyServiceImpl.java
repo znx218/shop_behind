@@ -32,15 +32,23 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public void addPro(Property property) {
-        propertyDao.addPro(property);
         property.setAuthor("李二");
         property.setCreateDate(new Date());
         property.setUpdateDate(new Date());
+        propertyDao.addPro(property);
+
     }
 
     @Override
     public void delPro(Integer id) {
         propertyDao.delPro(id);
+    }
+
+    @Override
+    public void updatePro(Property property) {
+        property.setUpdateDate(new Date());
+        propertyDao.updatePro(property);
+
     }
 
 

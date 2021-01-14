@@ -12,4 +12,6 @@ public interface PropertyService {
     void addPro(Property property);
 
     void delPro(Integer id);
+
+    void updatePro(Property property);
 }

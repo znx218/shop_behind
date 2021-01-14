@@ -13,4 +13,6 @@ public interface PropertyDao {
     void addPro(Property property);
 
     void delPro(Integer id);
+
+    void updatePro(Property property);
 }

@@ -4,6 +4,7 @@ import com.fh.shop_behind.entity.po.Property;
 import com.fh.shop_behind.entity.vo.PropertyParams;
 import com.fh.shop_behind.entity.vo.ResultData;
 import com.fh.shop_behind.service.PropertyService;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -36,6 +37,12 @@ public class PropertyController {
     @DeleteMapping("delPro")
     public ResultData delPro(Integer id){
         propertyService.delPro(id);
+        return ResultData.success("");
+    }
+
+    @PostMapping("updatePro")
+    public ResultData updatePro(Property property){
+        propertyService.updatePro(property);
         return ResultData.success("");
     }
 }
