@@ -1,9 +1,11 @@
 package com.fh.shop_behind.controller;
 
+import com.fh.shop_behind.entity.po.Property;
 import com.fh.shop_behind.entity.vo.PropertyParams;
 import com.fh.shop_behind.entity.vo.ResultData;
 import com.fh.shop_behind.service.PropertyService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +28,11 @@ public class PropertyController {
         }
         Map map=propertyService.queryPro(vo);
         return ResultData.success(map);
+    }
+
+    @PostMapping("addPro")
+    public ResultData addPro(Property property){
+        propertyService.addPro(property);
+        return ResultData.success("");
     }
 }

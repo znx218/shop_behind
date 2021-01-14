@@ -3,10 +3,12 @@ package com.fh.shop_behind.service.impl;
 import com.fh.shop_behind.dao.PropertyDao;
 import com.fh.shop_behind.entity.po.Property;
 import com.fh.shop_behind.entity.vo.PropertyParams;
+import com.fh.shop_behind.entity.vo.ResultData;
 import com.fh.shop_behind.service.PropertyService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,4 +29,14 @@ public class PropertyServiceImpl implements PropertyService {
         map.put("list",list);
         return map;
     }
+
+    @Override
+    public void addPro(Property property) {
+        propertyDao.addPro(property);
+        property.setAuthor("李二");
+        property.setCreateDate(new Date());
+        property.setUpdateDate(new Date());
+    }
+
+
 }

@@ -10,4 +10,5 @@ public interface PropertyDao {
 
     List<Property> queryProperty(PropertyParams vo);
 
+    void addPro(Property property);
 }

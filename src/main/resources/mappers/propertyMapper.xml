@@ -23,16 +23,16 @@
     </select>
 
 
-    <!--<insert id="addBrand">
-        insert into shop_brand
-        (name,brandone,imgPath,brandDesc,orderr,isDel,createDate,updateDate,author)
+    <insert id="addPro">
+        insert into shop_property
+        (name,nameCH,color,colorCH,typeId,type,isSKU,isDel,createDate,updateDate,author)
         value
-        (#{name},#{brandone},#{imgPath},#{brandDesc},#{orderr},#{isDel},#{createDate},#{updateDate},#{author})
+        (#{name},#{nameCH},#{color},#{colorCH},#{typeId},#{type},#{isSKU},#{isDel},#{createDate},#{updateDate},#{author})
     </insert>
 
 
 
-    <update id="updateBrand">
+    <!--<update id="updateBrand">
         update shop_brand set
           name = #{name},brandone = #{brandone},imgPath = #{imgPath},brandDesc = #{brandDesc},orderr = #{orderr},isDel = #{isDel}
           where id = #{id}
