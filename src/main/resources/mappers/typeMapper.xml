@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.shop_behind.dao.TypeDao">
+
+<!--   0 1 2 3 4 5 6 7 8 9         页数是从1开始    -->
+    <select id="getData"  resultType="com.fh.shop_behind.entity.po.Type">
+        select * from shop_type where isDel=0
+    </select>
+
+    <select id="getDataByPid"  resultType="com.fh.shop_behind.entity.po.Type">
+        select * from shop_type where pid=#{pid}
+    </select>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into shop_type (name,pid,createDate,updateDate,isDel) value (#{name},#{pid},#{createDate},#{updateDate},#{isDel})
+    </insert>
+
+
+    <select id="queryByType" resultType="com.fh.shop_behind.entity.po.Type">
+        select * from shop_type where id=#{id}
+    </select>
+
+
+    <update id="update">
+        update shop_type set name=#{name},isDel=#{isDel} where id=#{id}
+    </update>
+
+
+    <!--<select id="queryBrand" resultType="com.fh.car_demo.entity.po.Brand">
+        select * from a_brand
+    </select>
+
+    <select id="queryType" resultType="com.fh.car_demo.entity.po.Type">
+        select * from a_type
+    </select>
+
+    <delete id="delCar">
+        delete from a_car where cid=#{cid}
+    </delete>-->
+</mapper>

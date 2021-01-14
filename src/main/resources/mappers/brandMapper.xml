@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.shop_behind.dao.BrandDao">
+
+
+    <select id="queryCount" parameterType="com.fh.shop_behind.entity.vo.BrandParams" resultType="java.lang.Long">
+        select count(*) from shop_brand where 4=4
+        <if test="name!=null and name!=''">
+            and name=#{name}
+        </if>
+
+    </select>
+
+    <select id="queryBrand" parameterType="com.fh.shop_behind.entity.vo.BrandParams" resultType="com.fh.shop_behind.entity.po.Brand">
+        select * from shop_brand where 3=3
+        <if test="name!=null and name!=''">
+            and name=#{name}
+        </if>
+        limit ${size*(currPage-1)},#{size}
+    </select>
+
+
+    <insert id="addBrand">
+        insert into shop_brand
+        (name,brandone,imgPath,brandDesc,orderr,isDel,createDate,updateDate,author)
+        value
+        (#{name},#{brandone},#{imgPath},#{brandDesc},#{orderr},#{isDel},#{createDate},#{updateDate},#{author})
+    </insert>
+
+
+
+    <update id="updateBrand">
+        update shop_brand set
+          name = #{name},brandone = #{brandone},imgPath = #{imgPath},brandDesc = #{brandDesc},orderr = #{orderr},isDel = #{isDel}
+          where id = #{id}
+    </update>
+
+
+
+</mapper>
