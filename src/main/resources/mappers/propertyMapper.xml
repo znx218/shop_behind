@@ -30,6 +30,9 @@
         (#{name},#{nameCH},#{color},#{colorCH},#{typeId},#{type},#{isSKU},#{isDel},#{createDate},#{updateDate},#{author})
     </insert>
 
+    <delete id="delPro">
+        delete from shop_property where id=#{id}
+    </delete>
 
 
     <!--<update id="updateBrand">

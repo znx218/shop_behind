@@ -4,10 +4,7 @@ import com.fh.shop_behind.entity.po.Property;
 import com.fh.shop_behind.entity.vo.PropertyParams;
 import com.fh.shop_behind.entity.vo.ResultData;
 import com.fh.shop_behind.service.PropertyService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -33,6 +30,12 @@ public class PropertyController {
     @PostMapping("addPro")
     public ResultData addPro(Property property){
         propertyService.addPro(property);
+        return ResultData.success("");
+    }
+
+    @DeleteMapping("delPro")
+    public ResultData delPro(Integer id){
+        propertyService.delPro(id);
         return ResultData.success("");
     }
 }
