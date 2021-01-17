@@ -3,6 +3,7 @@ package com.fh.shop_behind.dao;
 import com.fh.shop_behind.entity.po.Value;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -13,4 +14,7 @@ public interface ValueDao {
     @Insert("insert into shop_property_value (value,valueZhi,proId)" +
             "value (#{value},#{valueZhi},#{proId})")
     void addValue(Value va);
+
+    @Update("update shop_property_value set value=#{value},valueZhi=#{valueZhi},proId=#{proId} where id=#{id}")
+    void updateValue(Value va);
 }

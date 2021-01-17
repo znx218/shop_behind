@@ -8,4 +8,6 @@ public interface ValueService {
     List<Value> queryValue(Integer proId);
 
     void addValue(Value va);
+
+    void updateValue(Value va);
 }
