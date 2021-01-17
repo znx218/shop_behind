@@ -7,17 +7,32 @@
 
 
     <select id="queryCount" parameterType="com.fh.shop_behind.entity.vo.PropertyParams" resultType="java.lang.Long">
-        select count(*) from shop_property where 4=4
-        <if test="nameCH!=null and nameCH!=''">
-            and nameCH=#{nameCH}
+        select count(*) from shop_property pro left join  shop_type t on pro.typeId=t.id
+        where 4=4
+
+        <if test="name!=null and name!=''">
+            and pro.nameCH like concat('%',#{name},'%')
+        </if>
+        <if test="type!=null">
+            and pro.type =#{type}
+        </if>
+        <if test="isSKU!=null">
+            and pro.isSKU=#{isSKU}
         </if>
 
     </select>
 
     <select id="queryProperty" parameterType="com.fh.shop_behind.entity.vo.PropertyParams" resultType="com.fh.shop_behind.entity.po.Property">
-        select * from shop_property where 3=3
-        <if test="nameCH!=null and nameCH!=''">
-            and nameCH=#{nameCH}
+        select pro.id,pro.nameCH as name,t.name as typeName,pro.isSKU,pro.type from shop_property pro LEFT JOIN shop_type t on pro.typeId=t.id
+        where 3=3
+        <if test="name!=null and name!=''">
+            and pro.nameCH like concat('%',#{name},'%')
+        </if>
+        <if test="type!=null">
+            and pro.type =#{type}
+        </if>
+        <if test="isSKU!=null">
+            and pro.isSKU=#{isSKU}
         </if>
         limit ${size*(currPage-1)},#{size}
     </select>
@@ -40,7 +55,6 @@
           name = #{name},nameCH = #{nameCH},color = #{color},colorCH = #{colorCH},typeId = #{typeId},isSKU=#{isSKU},isDel = #{isDel},createDate=#{createDate},updateDate=#{updateDate},author=#{author}
           where id = #{id}
     </update>
-
 
 
 </mapper>

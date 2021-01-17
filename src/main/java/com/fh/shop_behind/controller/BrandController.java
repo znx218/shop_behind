@@ -6,12 +6,15 @@ import com.fh.shop_behind.entity.vo.BrandParams;
 import com.fh.shop_behind.entity.vo.ResultData;
 import com.fh.shop_behind.service.BrandService;
 import com.fh.shop_behind.utils.FileInput;
+import com.fh.shop_behind.utils.OssFile;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("brand")
@@ -67,9 +70,13 @@ public class BrandController {
      * 请求方式：post
      * */
     @PostMapping("upload")
-    public ResultData upload(MultipartFile file){
-        String imgages = FileInput.saveFile(file, "images", request);
-        return ResultData.success(imgages);
+    public ResultData upload(MultipartFile file) throws IOException {
+        //处理新名称
+        String originalFilename = file.getOriginalFilename();
+        String newName = UUID.randomUUID().toString()+originalFilename.substring(originalFilename.lastIndexOf("."));
+        //存储路径
+        newName="imgs/"+newName;
+        return ResultData.success(OssFile.uploadFile(file.getInputStream(),newName));
     }
 
 

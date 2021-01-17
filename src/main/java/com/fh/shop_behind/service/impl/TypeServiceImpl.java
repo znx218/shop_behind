@@ -43,6 +43,8 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public void update(Type type) {
+        type.setUpdateDate(new Date());
+        type.setName("张三");
         typeDao.update(type);
     }
 

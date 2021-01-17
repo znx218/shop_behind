@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("property/")
+@CrossOrigin
 public class PropertyController {
     @Resource
     private PropertyService propertyService;

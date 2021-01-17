@@ -8,6 +8,7 @@ import com.fh.shop_behind.service.PropertyService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.Period;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +36,7 @@ public class PropertyServiceImpl implements PropertyService {
         property.setAuthor("李二");
         property.setCreateDate(new Date());
         property.setUpdateDate(new Date());
+        property.setIsDel(0);
         propertyDao.addPro(property);
 
     }
