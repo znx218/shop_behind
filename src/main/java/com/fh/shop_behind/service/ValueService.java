@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ValueService {
     List<Value> queryValue(Integer proId);
+
+    void addValue(Value va);
 }

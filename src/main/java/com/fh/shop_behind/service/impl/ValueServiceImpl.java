@@ -18,4 +18,9 @@ public class ValueServiceImpl implements ValueService {
         List<Value> list=valueDao.queryValue(proId);
         return list;
     }
+
+    @Override
+    public void addValue(Value va) {
+        valueDao.addValue(va);
+    }
 }

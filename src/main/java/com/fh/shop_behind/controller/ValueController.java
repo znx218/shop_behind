@@ -4,6 +4,7 @@ import com.fh.shop_behind.entity.po.Value;
 import com.fh.shop_behind.entity.vo.ResultData;
 import com.fh.shop_behind.service.ValueService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,12 @@ public class ValueController {
             }
             List<Value> list=valueService.queryValue(proId);
             return ResultData.success(list);
+        }
+
+        @PostMapping("addValue")
+    public ResultData addValue(Value va){
+            valueService.addValue(va);
+            return  ResultData.success(null);
         }
 
 }
