@@ -1,6 +1,7 @@
 package com.fh.shop_behind.dao;
 
 import com.fh.shop_behind.entity.po.Value;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -17,4 +18,7 @@ public interface ValueDao {
 
     @Update("update shop_property_value set value=#{value},valueZhi=#{valueZhi},proId=#{proId} where id=#{id}")
     void updateValue(Value va);
+
+    @Delete("delete from shop_property_value where id=#{id}")
+    void delValue(Integer id);
 }

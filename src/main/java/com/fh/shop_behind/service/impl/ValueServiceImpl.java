@@ -28,4 +28,9 @@ public class ValueServiceImpl implements ValueService {
     public void updateValue(Value va) {
         valueDao.updateValue(va);
     }
+
+    @Override
+    public void delValue(Integer id) {
+        valueDao.delValue(id);
+    }
 }

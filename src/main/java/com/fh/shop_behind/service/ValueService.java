@@ -10,4 +10,6 @@ public interface ValueService {
     void addValue(Value va);
 
     void updateValue(Value va);
+
+    void delValue(Integer id);
 }

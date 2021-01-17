@@ -3,10 +3,7 @@ package com.fh.shop_behind.controller;
 import com.fh.shop_behind.entity.po.Value;
 import com.fh.shop_behind.entity.vo.ResultData;
 import com.fh.shop_behind.service.ValueService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,6 +32,12 @@ public class ValueController {
         @PostMapping("updateValue")
         public ResultData updateValue(Value va){
             valueService.updateValue(va);
+            return ResultData.success("");
+        }
+
+        @DeleteMapping("delValue")
+         public ResultData delValue(Integer id){
+            valueService.delValue(id);
             return ResultData.success("");
         }
 
