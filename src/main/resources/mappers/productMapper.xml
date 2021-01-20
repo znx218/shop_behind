@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.shop_behind.dao.ProductDao">
+
+    <select id="queryCount" parameterType="com.fh.shop_behind.entity.vo.PageParams" resultType="java.lang.Long">
+        select count(*) from shop_product where 4=4
+        <if test="name!=null and name!=''">
+            and name=#{name}
+        </if>
+
+
+    </select>
+
+    <select id="queryProData" parameterType="com.fh.shop_behind.entity.vo.PageParams" resultType="com.fh.shop_behind.entity.po.Product">
+        select * from shop_product where 3=3
+        <if test="name!=null and name!=''">
+            and name=#{name}
+        </if>
+        limit ${size*(currPage-1)},#{size}
+    </select>
+
+
+
+</mapper>

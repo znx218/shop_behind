@@ -7,6 +7,15 @@ import java.util.Date;
 public class PageParams {
     private Integer currPage;
     private Integer size;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getCurrPage() {
         return currPage;
