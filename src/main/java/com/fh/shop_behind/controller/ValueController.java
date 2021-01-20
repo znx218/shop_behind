@@ -10,9 +10,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping("value/")
+@CrossOrigin
 public class ValueController {
     @Resource
     private ValueService valueService;
+
+    @GetMapping("queryValueByproId")
+    public ResultData queryValueByproId(Integer proId){
+        List<Value> list=valueService.queryValueByproId(proId);
+        return ResultData.success(list);
+    }
 
     @GetMapping("queryValue")
         public ResultData queryValue(Integer proId){

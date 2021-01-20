@@ -53,5 +53,11 @@ public class PropertyServiceImpl implements PropertyService {
 
     }
 
+    @Override
+    public List<Property> queryProValueBytypeId(Integer typeId) {
+        List<Property> list=propertyDao.queryProValueBytypeId(typeId);
+        return list;
+    }
+
 
 }

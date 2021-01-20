@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -16,6 +17,13 @@ import java.util.Map;
 public class PropertyController {
     @Resource
     private PropertyService propertyService;
+
+    //通过分类typeId查询所有属性 返回其属性值
+    @GetMapping("queryProBytypeId")
+    public ResultData queryProValueBytypeId(Integer typeId){
+        List<Property> list=propertyService.queryProValueBytypeId(typeId);
+        return ResultData.success(list);
+    }
 
     @GetMapping("queryPro")
     public ResultData queryPro(PropertyParams vo){

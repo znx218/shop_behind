@@ -12,4 +12,6 @@ public interface ValueService {
     void updateValue(Value va);
 
     void delValue(Integer id);
+
+    List<Value> queryValueByproId(Integer proId);
 }

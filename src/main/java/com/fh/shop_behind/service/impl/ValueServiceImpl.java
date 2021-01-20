@@ -33,4 +33,10 @@ public class ValueServiceImpl implements ValueService {
     public void delValue(Integer id) {
         valueDao.delValue(id);
     }
+
+    @Override
+    public List<Value> queryValueByproId(Integer proId) {
+        List<Value> list=valueDao.queryValueByproId(proId);
+        return list;
+    }
 }

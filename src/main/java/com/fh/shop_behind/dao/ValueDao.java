@@ -21,4 +21,7 @@ public interface ValueDao {
 
     @Delete("delete from shop_property_value where id=#{id}")
     void delValue(Integer id);
+
+    @Select("select * from shop_property_value where proId=#{proId}")
+    List<Value> queryValueByproId(Integer proId);
 }

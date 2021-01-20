@@ -2,10 +2,20 @@ package com.fh.shop_behind.entity.vo;
 // 自定义展示的数据
 public class PropertyShow {
     private Integer id;
-    private String name; // 属性的中文名    系统 颜色
+    private String name; // 属性的英文名    系统 颜色
+    private String nameCH;//属性中文名
     private String typeName; // 分类名称
     private  Integer isSKU;
     private  Integer type;
+
+
+    public String getNameCH() {
+        return nameCH;
+    }
+
+    public void setNameCH(String nameCH) {
+        this.nameCH = nameCH;
+    }
 
     public Integer getId() {
         return id;

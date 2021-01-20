@@ -13,11 +13,12 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("brand")
+@RequestMapping("brand/")
 @CrossOrigin
 public class BrandController {
     @Resource
@@ -30,6 +31,13 @@ public class BrandController {
      * 路径：http://localhost:8080/brand/queryBrandByPage
      * 请求方式：get
      * */
+
+    @GetMapping("queryBrand")
+    public ResultData queryBrand(){
+        List<Brand> list=brandService.queryBrand();
+        return ResultData.success(list);
+    }
+
     @GetMapping("queryBrandByPage")
     public ResultData queryBrandByPage(BrandParams vo){
         if(vo.getCurrPage()==null){
@@ -72,7 +80,7 @@ public class BrandController {
     @PostMapping("upload")
     public ResultData upload(MultipartFile file) throws IOException {
         //处理新名称
-        String originalFilename = file.getOriginalFilename();
+            String originalFilename = file.getOriginalFilename();
         String newName = UUID.randomUUID().toString()+originalFilename.substring(originalFilename.lastIndexOf("."));
         //存储路径
         newName="imgs/"+newName;
