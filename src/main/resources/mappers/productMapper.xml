@@ -19,6 +19,7 @@
         <if test="name!=null and name!=''">
             and name=#{name}
         </if>
+        order by id desc
         limit ${size*(currPage-1)},#{size}
     </select>
 

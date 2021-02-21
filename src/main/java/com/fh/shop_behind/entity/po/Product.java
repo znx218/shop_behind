@@ -1,19 +1,28 @@
 package com.fh.shop_behind.entity.po;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class  Product {
     private   Integer id;
     private   String  name;
     private   String  title;
-    private   Integer bandId;
+    private   Integer brandId;
     private   Integer typeId;
     private   String  productdecs;
-    private   double price;
+    private   Double price;
     private   String  imgPath;
     private   int     stocks;
     private   int     sortNum;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private   Date    createDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private   Date    updateDate;
     private   String  author;
     private   int     isDel;
@@ -42,12 +51,12 @@ public class  Product {
         this.title = title;
     }
 
-    public Integer getBandId() {
-        return bandId;
+    public Integer getBrandId() {
+        return brandId;
     }
 
-    public void setBandId(Integer bandId) {
-        this.bandId = bandId;
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
     }
 
     public Integer getTypeId() {
@@ -66,15 +75,11 @@ public class  Product {
         this.productdecs = productdecs;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

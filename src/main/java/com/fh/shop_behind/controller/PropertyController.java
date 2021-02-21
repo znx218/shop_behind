@@ -54,4 +54,11 @@ public class PropertyController {
         propertyService.updatePro(property);
         return ResultData.success("");
     }
+
+    /*根据类型id查询属性数据*/
+    @GetMapping("selectShopProDataByTypeId")
+    public ResultData selectShopProDataByTypeId(Integer typeId){
+        Map map= propertyService.selectShopProDataByTypeId(typeId);
+        return ResultData.success(map);
+    }
 }

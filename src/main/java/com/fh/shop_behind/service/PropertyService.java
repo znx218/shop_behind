@@ -17,4 +17,6 @@ public interface PropertyService {
     void updatePro(Property property);
 
     List<Property> queryProValueBytypeId(Integer typeId);
+
+    Map selectShopProDataByTypeId(Integer typeId);
 }

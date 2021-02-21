@@ -24,4 +24,9 @@ public interface ValueDao {
 
     @Select("select * from shop_property_value where proId=#{proId}")
     List<Value> queryValueByproId(Integer proId);
+
+
+
+    @Select("select * from shop_property_value where proId=#{id}")
+    List<Value> selectProValueDataByproId(Integer id);
 }

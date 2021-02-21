@@ -1,6 +1,7 @@
 package com.fh.shop_behind.dao;
 
 import com.fh.shop_behind.entity.po.Property;
+import com.fh.shop_behind.entity.vo.ProParmValue;
 import com.fh.shop_behind.entity.vo.PropertyParams;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -21,4 +22,13 @@ public interface PropertyDao {
 
     @Select("select * from  shop_property where typeId=#{typeId}")
     List<Property> queryProValueBytypeId(Integer typeId);
+
+
+
+
+    @Select("select * from shop_property where typeId=#{typeId}  and isSKU=0")
+    List<ProParmValue> selectShopProIsSku(Integer typeId);
+
+    @Select("select * from shop_property where typeId=#{typeId}  and isSKU=1")
+    List<ProParmValue> selectShopProNoIsSku(Integer typeId);
 }

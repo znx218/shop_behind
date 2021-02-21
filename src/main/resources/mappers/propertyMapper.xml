@@ -51,7 +51,7 @@
 
     <update id="updatePro">
         update shop_property set
-          name = #{name},nameCH = #{nameCH},color = #{color},colorCH = #{colorCH},typeId = #{typeId},isSKU=#{isSKU},isDel = #{isDel},createDate=#{createDate},updateDate=#{updateDate},author=#{author}
+          name = #{name},nameCH = #{nameCH},color = #{color},colorCH = #{colorCH},typeId = #{typeId},isSKU=#{isSKU},isDel = #{isDel},updateDate=#{updateDate},author=#{author}
           where id = #{id}
     </update>
 
