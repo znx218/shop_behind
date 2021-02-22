@@ -1,6 +1,8 @@
 package com.fh.shop_behind.service;
 
+import com.fh.shop_behind.entity.po.Role;
 import com.fh.shop_behind.entity.po.User;
+import com.fh.shop_behind.entity.po.UserRole;
 import com.fh.shop_behind.entity.vo.PageParams;
 
 import java.util.List;
@@ -21,5 +23,8 @@ public interface UserService {
     Map selectUserById(Integer id);
 
 
+    Map  selectRidByUid(Integer id);
 
+
+    void delOrfuRole(Integer uid, String ckRoles);
 }

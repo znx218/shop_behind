@@ -27,4 +27,7 @@ public interface RoleDao {
     void updateRole(Role role);
     @Select("select * from a_role where id=#{id}")
     Map selectRoleById(Integer id);
+    @Select("select * from a_role")
+    List<Role> selectAllRole();
+
 }

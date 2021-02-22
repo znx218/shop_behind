@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -28,12 +29,6 @@ public class RoleController {
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
-
-   /*@GetMapping("selectRoleData")
-    public Map selectRoleData(Integer uid){
-      Map map= roleService.selectRoleData(uid);
-      return map;
-   }*/
 
    /*@RequestMapping("delOrAddUserRole")
     @ResponseBody
@@ -104,5 +99,16 @@ public class RoleController {
     public ResultData selectRoleById(Integer id){
         Map map=roleService.selectRoleById(id);
         return ResultData.success(map);
+    }
+
+    /*
+     * 接口文档
+     * 路径：http://localhost:8080/user/selectAllRole
+     * 请求方式：get
+     * */
+    @GetMapping("selectAllRole")
+    public ResultData selectAllRole(){
+        List<Role> list=roleService.selectAllRole();
+        return ResultData.success(list);
     }
 }

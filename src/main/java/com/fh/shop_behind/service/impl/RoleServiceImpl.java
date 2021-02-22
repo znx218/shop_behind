@@ -52,5 +52,11 @@ public class RoleServiceImpl implements RoleService {
         return map;
     }
 
+    @Override
+    public List<Role> selectAllRole() {
+        List<Role> list=roleDao.selectAllRole();
+        return list;
+    }
+
 
 }

@@ -21,10 +21,6 @@
         limit ${size*(currPage-1)},#{size}
     </select>
 
-    <select id="selectUserByName"   resultType="com.fh.shop_behind.entity.po.User">
-        select *  from  a_user  where 1=1 and name=#{name}
-    </select>
-
 
     <insert id="addUser">
         insert into a_user
